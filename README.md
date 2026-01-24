@@ -1,6 +1,6 @@
 # connect4-react-functions
 
-This project is a functional refactor of my previous 'Connect 4' game implementation.
+This project is a functional refactor of [my previous 'Connect 4' game implementation](https://github.com/jesselessa/connect4-react-classes).
 
 ## Table of Contents
 
