@@ -1,6 +1,6 @@
 # connect4-react-functions
 
-This project is an implementation of the well-known 'Connect 4' game.
+This project is a functional refactor of my previous 'Connect 4' game implementation.
 
 ## Table of Contents
 
@@ -19,8 +19,7 @@ This project is an implementation of the well-known 'Connect 4' game.
 
 ## Evolution & Migration
 
-This project is a **functional refactor** of my previous Connect 4 implementation.
-The goal was to migrate the entire codebase from **React Class Components** to **React Functional Components** using modern **Hooks** (`useState`, `useEffect`, `useRef`, `useCallback`).
+The goal was to migrate the entire codebase of my former project from **React Class Components** to **React Functional Components** using modern **Hooks** (`useState`, `useEffect`, `useRef`, `useCallback`).
 
 > 🔗 **Original Class-based version :** [here](https://github.com/jesselessa/connect4-react-classes)
 
@@ -57,7 +56,7 @@ Unlike the legacy version, this repository follows modern React standards :
 Challenge our computer opponent in this classic strategy game ! Here is how it works :
 
 - **Man vs Machine** : This project is designed as a single-player experience where you face off against an AI.
-- **Choose the Starter** : You decide who takes the first shot! Select either "Player" or "AI" to start the game.
+- **Choose the Starter** : You decide who takes the first shot ! Select either "Player" or "AI" to start the game.
 - **Your Colors** :
   - **You** : Play with the **Red** tokens.
   - **AI** : Plays with the **Yellow** tokens.
@@ -71,7 +70,7 @@ Challenge our computer opponent in this classic strategy game ! Here is how it w
 
 ## Musical credits
 
-Licence: Pixabay Content License (Free Use)
+Licence : Pixabay Content License (Free Use)
 
 - **Background Music** : ['80's Music - Electric Dreams 2.0' by Tech_Oasis](https://pixabay.com/fr/music/synthwave-80x27s-music-electric-dreams-20-211957/)
 - **Token Drop Sound** : ['Coin Bag Pickup Drop' by ralph.whitehead](https://pixabay.com/fr/sound-effects/films-et-effets-sp%c3%a9ciaux-coin-bag-pickup-drop-94617/)
