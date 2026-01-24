@@ -1,42 +1,536 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+  font-family: Arial;
+  font-size: 1.6rem;
+}
+
+button {
+  letter-spacing: 0.1rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition:
+    background-color 0.5s,
+    color 0.5s;
+}
+
+button:active {
+  transform: translateY(1.5px);
+  transition:
+    background-color 0.5s,
+    color 0.5s;
+}
+
+/* App container */
+.App {
+  display: flex;
+  width: 100vw;
+  min-height: 100vh;
+  max-width: 100%;
+}
+
+/* Game Rules box */
+.gameRules {
+  width: 25vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 0.3rem solid #f15930;
+  background: #f3b98e;
+}
+.logoTitle {
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-size: 7.5rem;
+  min-height: 20vh;
+  width: 100%;
+  text-align: center;
+  line-height: 1;
+  padding: 1rem 0;
+  gap: 0.5rem;
+}
+.title {
+  text-shadow:
+    0.2rem 0 0 rgb(255, 255, 255),
+    0.2rem 0 0 rgb(255, 255, 255),
+    0 0.2rem 0 rgb(255, 255, 255),
+    0 -0.2rem 0 rgb(255, 255, 255),
+    0.1rem 0.1rem rgb(255, 255, 255),
+    -0.1rem -0.1rem 0 rgb(255, 255, 255),
+    -0.1rem -0.1rem 0 rgb(255, 255, 255),
+    -0.1rem 0.1rem 0 rgb(255, 255, 255);
+}
+.letterM {
+  color: #f15930;
+}
+.letterB {
+  color: #2858a1;
+}
+.subtitle {
+  font-size: 3rem;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 800;
   text-align: center;
 }
+.ref {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: center;
+  min-height: 27vh;
+  width: 100%;
+  padding: 1rem 0;
+}
+.children {
+  width: 5rem;
+  height: 5rem;
+  margin-bottom: 1rem;
+}
+.ref p,
+.rules p {
+  margin-bottom: 1.5rem;
+}
+.rules {
+  min-height: 53vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 1rem;
+  gap: 1rem;
+}
+.rules span {
+  font-weight: bold;
+}
+.rules p:last-child {
+  margin-bottom: 0;
+}
+.rules a {
+  display: block;
+  text-decoration: none;
+}
+.start-msg {
+  text-align: center;
+  color: #2858a1;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-top: 2rem;
+}
+.players {
+  margin-bottom: 2rem !important;
+}
+.separator {
+  background: #2858a1;
+  height: 0.3rem;
+  width: 70%;
+}
+footer {
+  text-align: center;
+  margin-top: auto;
+}
+footer a {
+  color: black;
+  font-size: 1.5rem;
+}
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+/* Title and board box */
+.titleAndBoard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75vw;
+  min-height: 100vh;
+  max-width: 100%;
+  background: url("./assets/images/kidsroom.jpg") no-repeat center / cover;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.titleDiv,
+.boardAndButton {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.titleDiv {
+  min-height: 15vh;
+}
+h1 {
+  font-size: 6.5rem;
+  font-family: "Oleo Script", cursive;
+  font-weight: 700;
+  color: #f15930;
+  text-align: center;
+  text-shadow:
+    0.2rem 0 0 rgb(255, 255, 255),
+    -0.2rem 0 0 rgb(255, 255, 255),
+    0 0.2rem 0 rgb(255, 255, 255),
+    0 -0.2rem 0 rgb(255, 255, 255),
+    0.1rem 0.1rem rgb(255, 255, 255),
+    -0.1rem -0.1rem 0 rgb(255, 255, 255),
+    -0.1rem -0.1rem 0 rgb(255, 255, 255),
+    -0.1rem 0.1rem 0 rgb(255, 255, 255);
+}
+.boardAndButton {
+  min-height: 85vh;
+}
+.mode-selector {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+.mode-selector button {
+  background-color: teal;
+  color: white;
+  font-size: 1.6rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  height: 40px;
+  width: 145px;
+}
+.mode-selector button:hover {
+  background-color: #2858a1;
+  font-weight: normal;
+}
+.message {
+  font-family: "Oleo Script", cursive;
+  font-weight: 400;
+  color: #f15930;
+  text-align: center;
+  font-size: 3.5rem;
+  margin: 1rem auto 2rem;
+  line-height: 1;
+  max-width: 100%;
+  text-shadow:
+    0.2rem 0 0 rgb(255, 255, 255),
+    -0.2rem 0 0 rgb(255, 255, 255),
+    0 0.2rem 0 rgb(255, 255, 255),
+    0 -0.2rem 0 rgb(255, 255, 255),
+    0.1rem 0.1rem rgb(255, 255, 255),
+    -0.1rem -0.1rem 0 rgb(255, 255, 255),
+    -0.1rem -0.1rem 0 rgb(255, 255, 255),
+    -0.1rem 0.1rem 0 rgb(255, 255, 255);
 }
 
-@keyframes logo-spin {
+/* Text animation */
+.animated-text {
+  animation: 2s message ease infinite;
+}
+@keyframes message {
+  0% {
+    color: white;
+    transform: scale(0);
+    opacity: 0;
+    text-shadow:
+      0.2rem 0 0 #f15930,
+      -0.2rem 0 0 #f15930,
+      0 0.2rem 0 #f15930,
+      0 -0.2rem 0 #f15930,
+      0.1rem 0.1rem #f15930,
+      -0.1rem -0.1rem 0 #f15930,
+      -0.1rem -0.1rem 0 #f15930,
+      -0.1rem 0.1rem 0 #f15930;
+  }
+  25% {
+    color: #f15930;
+    transform: scale(1.2);
+    opacity: 1;
+    text-shadow:
+      0.2rem 0 0 rgb(255, 255, 255),
+      -0.2rem 0 0 rgb(255, 255, 255),
+      0 0.2rem 0 rgb(255, 255, 255),
+      0 -0.2rem 0 rgb(255, 255, 255),
+      0.1rem 0.1rem rgb(255, 255, 255),
+      -0.1rem -0.1rem 0 rgb(255, 255, 255),
+      -0.1rem -0.1rem 0 rgb(255, 255, 255),
+      -0.1rem 0.1rem 0 rgb(255, 255, 255);
+  }
+  50% {
+    color: white;
+    transform: scale(1);
+    opacity: 1;
+    text-shadow:
+      0.2rem 0 0 #f15930,
+      -0.2rem 0 0 #f15930,
+      0 0.2rem 0 #f15930,
+      0 -0.2rem 0 #f15930,
+      0.1rem 0.1rem #f15930,
+      -0.1rem -0.1rem 0 #f15930,
+      -0.1rem -0.1rem 0 #f15930,
+      -0.1rem 0.1rem 0 #f15930;
+  }
+  75% {
+    transform: scale(1.2);
+    opacity: 1;
+    text-shadow:
+      2px 0 0 #f15930,
+      -2px 0 0 #f15930,
+      0 2px 0 #f15930,
+      0 -2px 0 #f15930,
+      1px 1px #f15930,
+      -1px -1px 0 #f15930,
+      1px -1px 0 #f15930,
+      -1px 1px 0 #f15930;
+  }
+  100% {
+    color: white;
+    transform: scale(0);
+    opacity: 0;
+    text-shadow:
+      0.2rem 0 0 #f15930,
+      -0.2rem 0 0 #f15930,
+      0 0.2rem 0 #f15930,
+      0 -0.2rem 0 #f15930,
+      0.1rem 0.1rem #f15930,
+      -0.1rem -0.1rem 0 #f15930,
+      -0.1rem -0.1rem 0 #f15930,
+      -0.1rem 0.1rem 0 #f15930;
+  }
+}
+
+/* --- Board styles --- */
+table {
+  border-spacing: 0;
+}
+.cell {
+  position: relative;
+  height: 7rem;
+  width: 7rem;
+  background-color: #2858a1; /* Grid has a blue background */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0.9;
+  border: 1px solid #1e3a66;
+}
+.white,
+.red,
+.yellow {
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+}
+.white {
+  position: absolute;
+  /* Center the white circle */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  background-color: white;
+  z-index: 1; /* Behind the token */
+}
+.red {
+  background-color: #f15930;
+  transition: background-color 0.5s;
+  z-index: 5; /* Token is above the white circle */
+}
+.yellow {
+  background-color: #ffd700;
+  transition: background-color 0.5s;
+  z-index: 5;
+}
+
+/* Token with animation ('drop' effect) */
+.drop {
+  animation: drop 0.5s ease-out;
+  z-index: 5;
+}
+@keyframes drop {
   from {
-    transform: rotate(0deg);
+    transform: translateY(-500px);
+    opacity: 0;
   }
   to {
-    transform: rotate(360deg);
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+/* --- Winning combination styles --- */
+.orange {
+  background-color: #ff9800 !important; /* Force orange on red or yellow */
+  border: 3px solid white;
+  box-shadow: 0 0 20px #ff9800;
+  transform: scale(1.1);
+  z-index: 10;
+  animation: win-pulse 0.8s infinite alternate;
+}
+@keyframes win-pulse {
+  from {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #ff9800;
+  }
+  to {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px #ffcc80;
+  }
+}
+/* Darken other tokens slightly when the game is over to make the winning line stand out */
+table:has(.orange) .cell:not(:has(.orange)) {
+  opacity: 0.6;
+  filter: grayscale(30%);
+}
+
+/* Reset and token sound buttons */
+.btn-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  margin: 2rem auto 1rem;
+}
+.reset-btn {
+  background-color: #f15930;
+  color: white;
+  letter-spacing: 0.1rem;
+  height: 45px;
+  width: 130px;
+  font-weight: bold;
+  font-size: 2rem;
+  border-radius: 0.5rem;
+}
+.reset-btn:hover {
+  background-color: orange;
+  color: black;
+  font-weight: normal;
+}
+.token-sound-btn {
+  background-color: teal;
+  color: white;
+  letter-spacing: 0.1rem;
+  font-weight: bold;
+  height: 45px;
+  border-radius: 0.5rem;
+  padding: 1rem 1.5rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+  /* transition: background-color 0.3s; */
+}
+.token-sound-btn:hover {
+  background-color: #2858a1;
+}
+
+/* Background music */
+#toggle {
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  cursor: pointer;
+}
+#toggle-music {
+  width: 64px;
+  height: 64px;
+}
+figcaption {
+  font-size: 1.6rem;
+  font-weight: bolder;
+  color: #2858a1;
+}
+
+/*************** MEDIA QUERIES *****************/
+@media only screen and (max-width: 992px) {
+  .App {
+    flex-direction: column;
+  }
+  .gameRules,
+  .titleAndBoard {
+    width: 100vw;
+  }
+  .gameRules {
+    border-right: none;
+  }
+  h1 {
+    font-size: 5rem;
+  }
+  .message {
+    max-width: 80%;
+    font-size: 3rem;
+  }
+  .cell {
+    height: 5.5rem;
+    width: 5.5rem;
+  }
+  .white,
+  .red,
+  .yellow {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+  .btn-group {
+    gap: 3rem;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .btn-group {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .reset-btn,
+  .token-sound-btn {
+    height: 45px;
   }
 }
 
-.card {
-  padding: 2em;
+@media only screen and (max-width: 400px) {
+  .rules p {
+    margin-bottom: 0.5rem;
+  }
+  .cell {
+    height: 4.5rem;
+    width: 4.5rem;
+  }
+  .white,
+  .red,
+  .yellow {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+  .message {
+    font-size: 2.8rem;
+  }
+  .btn-group {
+    gap: 3rem;
+  }
 }
 
-.read-the-docs {
-  color: #888;
+@media only screen and (max-width: 320px) {
+  .cell {
+    height: 4.2rem;
+    width: 4.2rem;
+  }
+  .white,
+  .red,
+  .yellow {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+  .message {
+    font-size: 2.5rem;
+  }
+  .btn-group {
+    gap: 1.5rem;
+  }
+  #toggle {
+    top: 10px;
+  }
+  #toggle-music {
+    width: 54px;
+    height: 54px;
+  }
 }
