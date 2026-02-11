@@ -252,7 +252,7 @@ const App = () => {
             <div className="btn-group">
               <button className="reset-btn" onClick={() => initBoard()}>RESET</button>
               <button className="token-sound-btn" onClick={() => setIsSoundEnabled(!isSoundEnabled)}>
-                {isSoundEnabled ? "Désactiver le son" : "Activer le son"}
+                {isSoundEnabled ? "Désactiver le son des jetons" : "Activer le son des jetons"}
               </button>
             </div>
           )}
