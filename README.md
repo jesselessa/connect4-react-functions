@@ -12,7 +12,6 @@ This project is a functional refactor of [my previous 'Connect 4' game implement
 - [Game rules](#game-rules)
 - [Musical credits](#musical-credits)
 - [Run the project locally](#run-the-project-locally)
-- [Getting started with Vite](#getting-started-with-vite)
 - [Contributing](#contributing)
 - [Stay Updated](#stay-updated)
 - [Contact](#contact)
@@ -85,26 +84,6 @@ Licence : Pixabay Content License (Free Use)
 4. Install dependencies : `npm install`
 5. Run the application in development mode : `npm run dev`
 6. Open `http://localhost:5173` in your browser.
-
-## Getting Started with Vite
-
-[Vite](https://vitejs.dev/) is a fast development tool for modern web applications.
-
-### 1. Install Node.js and npm
-
-Ensure you have Node.js and npm installed. Download them from the [official Node.js website](https://nodejs.org/en).
-
-### 2. Install dependencies
-
-Run `npm install` to install all necessary packages.
-
-### 3. Start the development server
-
-Use the command `npm run dev`. This will launch Vite at `http://localhost:5173`.
-
-### 4. Deploy to production
-
-To build an optimized version, use `npm run build`. This generates a production-ready version in the `dist` directory.
 
 ## Contributing
 
